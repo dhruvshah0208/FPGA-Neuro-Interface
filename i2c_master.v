@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 01/06/2021 12:14:36 AM
+// Create Date: 03/06/2021 07:21:58 PM
 // Design Name: 
-// Module Name: i2cmaster
+// Module Name: i2c_master
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module i2cmaster(
+module i2c_master(
 input clk,
 input enable,
 input resetn,
@@ -28,7 +28,24 @@ output SCL,
 inout SDA,
 output LDAC,
 output error,
-output done
+output done,
+input [7:0] DAC_A_DATA_1,
+input [7:0] DAC_B_DATA_1,
+input [7:0] DAC_C_DATA_1,
+input [7:0] DAC_D_DATA_1,
+input [7:0] DAC_E_DATA_1,
+input [7:0] DAC_F_DATA_1,
+input [7:0] DAC_G_DATA_1,
+input [7:0] DAC_H_DATA_1,
+
+input [7:0] DAC_A_DATA_2,
+input [7:0] DAC_B_DATA_2,
+input [7:0] DAC_C_DATA_2,
+input [7:0] DAC_D_DATA_2,
+input [7:0] DAC_E_DATA_2,
+input [7:0] DAC_F_DATA_2,
+input [7:0] DAC_G_DATA_2,
+input [7:0] DAC_H_DATA_2
 );
 
 reg LDAC_reg;
@@ -79,26 +96,6 @@ localparam DAC_E_2 = 8'b00001100;
 localparam DAC_F_2 = 8'b00001101; 
 localparam DAC_G_2 = 8'b00001110; 
 localparam DAC_H_2 = 8'b00001111; 
-
-// Data to be sent
-localparam DAC_A_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_B_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_C_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_D_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_E_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_F_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_G_DATA_1 = 8'b01010010; // Random Value - Change Later
-localparam DAC_H_DATA_1 = 8'b01010010; // Random Value - Change Later
-
-localparam DAC_A_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_B_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_C_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_D_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_E_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_F_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_G_DATA_2 = 8'b01010010; // Random Value - Change Later
-localparam DAC_H_DATA_2 = 8'b01010010; // Random Value - Change Later
-
 
 always @(negedge resetn or posedge clk) begin
     // Initialize the register_bank
