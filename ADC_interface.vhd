@@ -80,7 +80,7 @@ begin
 			else
 				clk_counter_register <= next_clock_counter_register;
 				fsm_state <= next_fsm_state_var;
-				DIN <= '0';
+				DIN <= '1';
 			end if;
 		end if;
 		
